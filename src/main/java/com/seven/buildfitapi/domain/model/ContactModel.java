@@ -1,4 +1,7 @@
 package com.seven.buildfitapi.domain.model;
 
-public class ContactModel {
+import jakarta.persistence.Entity;
+
+@Entity
+public class ContactModel extends BaseModel{
 }

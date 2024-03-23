@@ -18,7 +18,7 @@ public class BaseModel {
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private Long id;
-    @GeneratedValue(strategy = GenerationType.UUID)
+
     private UUID code;
 
     private Boolean active;
@@ -27,5 +27,12 @@ public class BaseModel {
     private OffsetDateTime createdAt;
     @UpdateTimestamp
     private OffsetDateTime updatedAt;
+
+    @PrePersist
+    public void generatedCode() {
+        if (this.code == null) {
+            this.code = UUID.randomUUID();
+        }
+    }
 
 }
