@@ -2,10 +2,8 @@ package com.seven.buildfitapi.domain.model;
 
 import jakarta.persistence.Entity;
 
-import java.util.List;
-
 @Entity
-public class ExerciseModel extends BaseModel{
+public class Exercise extends Base {
 
     private String name;
     private String description;

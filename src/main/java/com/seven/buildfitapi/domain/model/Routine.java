@@ -1,6 +1,6 @@
 package com.seven.buildfitapi.domain.model;
 
-public class RoutineModel {
+public class Routine {
 
     // private WorkoutModel workout;
     private String day;
