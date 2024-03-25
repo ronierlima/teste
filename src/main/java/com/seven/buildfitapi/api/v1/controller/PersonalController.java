@@ -10,10 +10,8 @@ import com.seven.buildfitapi.domain.model.Personal;
 import com.seven.buildfitapi.domain.repository.PersonalRepository;
 import com.seven.buildfitapi.domain.service.personal.CreatePersonalService;
 import com.seven.buildfitapi.domain.service.personal.ListPersonalService;
-import com.seven.buildfitapi.infra.repository.spec.PersonalSpecs;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,8 +23,6 @@ import java.util.List;
 @RequestMapping(value = "v1/personals", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class PersonalController {
-
-    private final PersonalRepository personalRepository;
 
     private final CreatePersonalService createPersonalService;
     private final ListPersonalService listPersonalService;
@@ -40,9 +36,7 @@ public class PersonalController {
         List<PersonalDTO> personalsDTOS = genericAssembler.toCollectionModel(personalsPage.getContent(), PersonalDTO.class);
 
         return new PageDTO<>(personalsDTOS, personalsPage.getPageable(), personalsPage.getTotalElements());
-
     }
-
 
     @GetMapping("/all")
     public List<PersonalDTO> listAll(PersonalFilter personalFilter) {
@@ -57,7 +51,6 @@ public class PersonalController {
         Personal personal1 = createPersonalService.save(personal);
 
         return genericAssembler.toModel(personal1, PersonalDTO.class);
-
     }
 
 }
