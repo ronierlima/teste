@@ -12,5 +12,5 @@ import java.util.UUID;
 public interface PersonalRepository extends CustomJpaRepository<Personal, Long> {
 
     Optional<Personal> findByCode(UUID code);
-    Optional<Personal> findByLincese(String lincese);
+    Optional<Personal> findByLicense(String lincese);
 }

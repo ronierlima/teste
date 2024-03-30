@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UpdatePersonalService {
     private final PersonalRepository personalRepository;
+    private final GetPersonalService getPersonalService;
 
     public Personal update(Personal personal) {
 
@@ -18,6 +19,12 @@ public class UpdatePersonalService {
 
         if(personal.getId() == null) {
             throw new RuntimeException("Update only id");
+        }
+
+        Personal personalSearchByLicense = getPersonalService.findByLicense(personal.getLicense());
+
+        if(personalSearchByLicense != null && !personalSearchByLicense.getCode().equals(personal.getCode())) {
+            throw new RuntimeException("License in used");
         }
 
         return personalRepository.save(personal);

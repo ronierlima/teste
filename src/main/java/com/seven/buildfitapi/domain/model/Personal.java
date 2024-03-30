@@ -12,6 +12,7 @@ import java.util.List;
 @Table(name = "personals")
 public class Personal extends Person {
 
+    @Column(unique = true)
     private String license;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "personal")
