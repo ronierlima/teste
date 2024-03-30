@@ -8,7 +8,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "clients")
-@DiscriminatorValue("CLIENT")
 public class Client extends Person {
 
     @ManyToOne(fetch = FetchType.LAZY)

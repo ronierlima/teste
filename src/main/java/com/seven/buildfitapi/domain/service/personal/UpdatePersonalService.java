@@ -2,24 +2,22 @@ package com.seven.buildfitapi.domain.service.personal;
 
 import com.seven.buildfitapi.domain.model.Personal;
 import com.seven.buildfitapi.domain.repository.PersonalRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CreatePersonalService {
+public class UpdatePersonalService {
     private final PersonalRepository personalRepository;
-    private final GetPersonalService getPersonalService;
 
-    public Personal save(Personal personal) {
+    public Personal update(Personal personal) {
 
-        if(personal.getCode() != null) {
-            throw new RuntimeException("Create only no code");
+        if(personal.getCode() == null) {
+            throw new RuntimeException("Update only code");
         }
 
-        if(getPersonalService.findByLicense(personal.getLicense()) != null) {
-            throw new RuntimeException("License in used");
+        if(personal.getId() == null) {
+            throw new RuntimeException("Update only id");
         }
 
         return personalRepository.save(personal);

@@ -10,7 +10,6 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "personals")
-@DiscriminatorValue("PERSONAL")
 public class Personal extends Person {
 
     private String license;
