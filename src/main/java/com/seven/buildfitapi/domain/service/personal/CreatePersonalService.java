@@ -14,6 +14,10 @@ public class CreatePersonalService {
 
     public Personal save(Personal personal) {
 
+        if(personal.getId() != null) {
+            throw new RuntimeException("Create only no id");
+        }
+
         if(personal.getCode() != null) {
             throw new RuntimeException("Create only no code");
         }

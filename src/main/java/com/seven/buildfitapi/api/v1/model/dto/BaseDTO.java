@@ -8,7 +8,8 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class PersonalDTO extends PersonDTO {
+public class BaseDTO {
 
-    private String license;
+    private UUID code;
+    private boolean active;
 }
