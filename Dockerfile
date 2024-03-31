@@ -5,7 +5,7 @@ COPY . .
 RUN mvn clean package
 
 FROM openjdk:17-jdk-slim
-COPY --from=build /target/buildfit-0.0.1-SNAPSHOT.jar buildfit.jar
+COPY --from=build /target/*.jar buildfit-api.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","buildfit.jar"]
