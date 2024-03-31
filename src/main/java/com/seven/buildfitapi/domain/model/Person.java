@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Inheritance( strategy = InheritanceType.JOINED )
+@Inheritance( strategy = InheritanceType.JOINED)
 public class Person extends Base {
 
     private String name;

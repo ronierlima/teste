@@ -2,7 +2,6 @@ package com.seven.buildfitapi.domain.service.personal;
 
 import com.seven.buildfitapi.domain.model.Personal;
 import com.seven.buildfitapi.domain.repository.PersonalRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

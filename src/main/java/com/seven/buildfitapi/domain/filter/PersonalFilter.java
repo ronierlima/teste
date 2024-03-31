@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PersonalFilter {
-    private String name;
+public class PersonalFilter extends PersonFilter {
+
 }
